@@ -78,7 +78,7 @@ publishing{
             afterEvaluate{
                 from (components["release"])
                 groupId ="com.github.subharanjann" // GitHub username
-                artifactId = "ScanBinModule-VariantA"      // GitHub repository name
+                artifactId = "ScanBinModule"      // GitHub repository name
 //                                version = "1.0.0"
             }
         }
