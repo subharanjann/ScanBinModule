@@ -19,9 +19,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val i = Intent(this,ScanBinStarterActivity::class.java)
-        i.putExtra("baseURL","https://swms.mobillor.net/api/api/api/swms/")
-        i.putExtra("userToken","")
+
         setContent {
             ScanBinModuleRunnerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

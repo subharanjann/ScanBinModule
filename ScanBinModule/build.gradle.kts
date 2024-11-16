@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id ("maven-publish")
+
 }
 
 android {
@@ -69,4 +71,16 @@ dependencies {
     //scanner
     implementation("com.google.zxing:core:3.4.1")
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
+}
+publishing{
+    publications{
+        register<MavenPublication>("release"){
+            afterEvaluate{
+                from (components["release"])
+                groupId ="com.github.subharanjann" // GitHub username
+                artifactId = "ScanBinModule-VariantA"      // GitHub repository name
+//                                version = "1.0.0"
+            }
+        }
+    }
 }
