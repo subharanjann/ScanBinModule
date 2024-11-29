@@ -81,12 +81,27 @@ dependencies {
 publishing{
     publications{
         register<MavenPublication>("release"){
+
+            groupId ="com.github.subharanjann" // GitHub username
+            artifactId = "scanbinmodule"      // GitHub repository name
+            version = "1.0.0"
             afterEvaluate{
                 from (components["release"])
-                groupId ="com.github.subharanjann" // GitHub username
-                artifactId = "ScanBinModule"      // GitHub repository name
-//                                version = "1.0.0"
             }
         }
+    }
+
+    repositories {
+        maven {
+            name = "GithubPackages"
+            url =uri("https://maven.pkg.github.com/subharanjann/ScanBinModule")
+            credentials {
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+
+
+
     }
 }
